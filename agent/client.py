@@ -1,21 +1,29 @@
-"""Normalized target-agent adapter.
-
-Replace the implementation once the supplied healthcare AI agent is received.
-"""
-
-from dataclasses import dataclass, field
-from typing import Any
-
-
-@dataclass
-class AgentResult:
-    response: str
-    tool_calls: list[dict[str, Any]] = field(default_factory=list)
-    tool_results: list[dict[str, Any]] = field(default_factory=list)
-    latency_ms: float = 0.0
-    trajectory: list[dict[str, Any]] = field(default_factory=list)
+from agent.fallback_agent import (
+    FallbackHealthcareAgent,
+    AgentResult,
+)
 
 
 class AgentClient:
-    def run(self, messages: list[dict[str, str]], **kwargs) -> AgentResult:
-        raise NotImplementedError("Connect the supplied healthcare AI agent here.")
+    """
+    Unified interface for the evaluation framework.
+
+    Currently uses the fallback agent.
+    Later this can be replaced with the supplied assessment agent.
+    """
+
+    def __init__(self, fault_type=None):
+        self.agent = FallbackHealthcareAgent(
+            fault_type=fault_type
+        )
+
+    def run(
+        self,
+        messages: list[dict[str, str]],
+        **kwargs,
+    ) -> AgentResult:
+
+        return self.agent.run(
+            messages,
+            **kwargs,
+        )
