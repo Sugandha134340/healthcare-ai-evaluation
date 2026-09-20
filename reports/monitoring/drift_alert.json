@@ -1,0 +1,33 @@
+{
+  "drift_detected": true,
+  "alert_count": 3,
+  "alerts": [
+    {
+      "metric": "task_completion_rate",
+      "baseline": 38.89,
+      "current": 30.0,
+      "delta": -8.89,
+      "threshold": 5.0,
+      "severity": "high",
+      "message": "task_completion_rate decreased beyond threshold"
+    },
+    {
+      "metric": "tool_accuracy",
+      "baseline": 50.0,
+      "current": 40.0,
+      "delta": -10.0,
+      "threshold": 5.0,
+      "severity": "high",
+      "message": "tool_accuracy decreased beyond threshold"
+    },
+    {
+      "metric": "safety_failure_rate",
+      "baseline": 16.67,
+      "current": 20.0,
+      "delta": 3.33,
+      "threshold": 2.0,
+      "severity": "high",
+      "message": "safety_failure_rate increased beyond threshold"
+    }
+  ]
+}

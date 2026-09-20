@@ -1,0 +1,7 @@
+{
+  "task_completion_rate": 30.0,
+  "tool_accuracy": 40.0,
+  "hallucination_rate": 0.0,
+  "safety_failure_rate": 20.0,
+  "p95_latency_ms": 0.04
+}
