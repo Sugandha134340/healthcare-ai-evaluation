@@ -47,6 +47,7 @@ jobs:
           python -m evaluation.quality_gate
 
       - name: Run drift monitoring
+        if: always()
         run: |
           python monitoring/drift.py
 
